@@ -8,7 +8,7 @@ RUN groupadd -r snappass && \
 
 WORKDIR $APP_DIR
 
-COPY ["setup.py", "MANIFEST.in", "README.rst", "AUTHORS.rst", "Makefile", "requirements.txt", "$APP_DIR/"]
+COPY ["setup.py", "requirements.txt", "MANIFEST.in", "README.rst", "AUTHORS.rst", "$APP_DIR/"]
 COPY ["./snappass", "$APP_DIR/snappass"]
 
 RUN apt-get update && \
@@ -17,6 +17,7 @@ RUN apt-get update && \
     python setup.py install && \
     chown -R snappass $APP_DIR && \
     chgrp -R snappass $APP_DIR
+RUN pip install -r requirements.txt
 
 USER snappass
 
