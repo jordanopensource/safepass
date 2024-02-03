@@ -214,9 +214,10 @@ def show_password(password_key):
     return render_template('password.html', password=password)
 
 
-@app.route('/healthcheck', methods=['GET'])
-def get_healthcheck():
-    return {'result': 'I\'m working👍'}
+@app.route('/_/_/health', methods=['GET'])
+@check_redis_alive
+def health_check():
+    return {}
 
 
 @check_redis_alive
