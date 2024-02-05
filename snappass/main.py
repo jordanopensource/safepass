@@ -199,6 +199,11 @@ def clean_input():
 
     return TIME_CONVERSION[time_period], request.form['password']
 
+# inject matomo data in all templates
+@app.context_processor
+def injectMatomoData():
+    return MATOMO_DATA
+
 
 def set_base_url(req):
     if NO_SSL:
