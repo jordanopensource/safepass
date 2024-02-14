@@ -71,7 +71,6 @@ def check_redis_alive(fn):
 
     return inner
 
-
 def encrypt(password):
     """
     Take a password string, encrypt it with Fernet symmetric encryption,
@@ -361,7 +360,6 @@ def health_check():
 def main():
     app.run(host=os.environ.get('SNAPPASS_BIND_ADDRESS', '0.0.0.0'),
             port=os.environ.get('SNAPPASS_PORT', 5000))
-
 
 if __name__ == '__main__':
     main()
