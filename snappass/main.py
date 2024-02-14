@@ -5,24 +5,17 @@ import uuid
 import redis
 
 from cryptography.fernet import Fernet
-from flask import abort, Flask, render_template, request, jsonify
+from flask import abort, Flask, render_template, request, jsonify, g
 from redis.exceptions import ConnectionError
 from urllib.parse import quote_plus
 from urllib.parse import unquote_plus
 from distutils.util import strtobool
+from flask_babel import Babel
 
 NO_SSL = bool(strtobool(os.environ.get('NO_SSL', 'False')))
 URL_PREFIX = os.environ.get('URL_PREFIX', None)
 HOST_OVERRIDE = os.environ.get('HOST_OVERRIDE', None)
 TOKEN_SEPARATOR = '~'
-
-# Get environment variables for matomo
-MATOMO_URL = os.environ.get('MATOMO_URL', None)
-SITE_ID = os.environ.get('MATOMO_SITE_ID', None)
-MATOMO_DATA = {
-    'matomo_url': MATOMO_URL,
-    'site_id': SITE_ID
-}
 
 # Initialize Flask Application
 app = Flask(__name__)
@@ -31,6 +24,11 @@ if os.environ.get('DEBUG'):
 app.secret_key = os.environ.get('SECRET_KEY', 'Secret Key')
 app.config.update(
     dict(STATIC_URL=os.environ.get('STATIC_URL', 'static')))
+
+# Set up Babel
+def get_locale():
+    return request.accept_languages.best_match(['en', 'nl'])
+babel = Babel(app, locale_selector=get_locale)
 
 # Initialize Redis
 if os.environ.get('MOCK_REDIS'):
@@ -62,7 +60,6 @@ def check_redis_alive(fn):
             else:
                 return abort(500)
     return inner
-
 
 def encrypt(password):
     """
@@ -223,7 +220,6 @@ def health_check():
 @check_redis_alive
 def main():
     app.run(host='0.0.0.0')
-
 
 if __name__ == '__main__':
     main()
