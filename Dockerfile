@@ -18,7 +18,6 @@ RUN pybabel compile -d snappass/translations
 RUN python setup.py install && \
     chown -R snappass $APP_DIR && \
     chgrp -R snappass $APP_DIR
-RUN pip install -r requirements.txt
 
 USER snappass
 
