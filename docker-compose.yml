@@ -1,4 +1,13 @@
-version: '2'
+services:
+  safepass:
+    build: .
+    image: josaorg/safepass
+    ports:
+      - '5000:5000'
+    stop_signal: SIGINT
+    env_file: env/.env
+    depends_on:
+      - redis
 
 services:
     safepass:
