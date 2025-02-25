@@ -14,3 +14,7 @@ repos:
     hooks:
       - id: gitleaks
         name: detect hardcoded secrets
+  - repo: https://github.com/jordanopensource/pre-commit-hooks
+    rev: v0.4.4
+    hooks:
+      - id: run-samplr
