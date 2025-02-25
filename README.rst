@@ -201,10 +201,10 @@ To check if a password exists, send a HEAD request to ``/api/v2/passwords/<token
     $ curl --head http://localhost:5000/api/v2/passwords/snappassbedf19b161794fd288faec3eba15fa41~hHnILpQ50ZfJc3nurDfHCb_22rBr5gGEya68e_cZOrY%3D
 
 If :
-- the passwork_key is valid 
+- the passwork_key is valid
 - the password :
   - exists,
-  - has not been read 
+  - has not been read
   - is not expired
 
 Then the API will return a 200 (OK) response like so:
@@ -228,7 +228,7 @@ Otherwise, the API will return a 404 (Not Found) response like so:
     Content-Type: text/html; charset=utf-8
     Content-Length: 0
     Connection: close
-    
+
 
 Read a password
 """""""""""""""
@@ -240,10 +240,10 @@ To read a password, send a GET request to ``/api/v2/passwords/<password_key>``, 
     $ curl -X GET http://localhost:5000/api/v2/passwords/snappassbedf19b161794fd288faec3eba15fa41~hHnILpQ50ZfJc3nurDfHCb_22rBr5gGEya68e_cZOrY%3D
 
 If :
-- the token is valid 
+- the token is valid
 - the password :
   - exists
-  - has not been read 
+  - has not been read
   - is not expired
 
 Then the API will return a 200 (OK) with a JSON response containing the password :

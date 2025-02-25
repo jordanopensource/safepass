@@ -128,4 +128,3 @@ msgstr "Eine Stunde"
 #: snappass/templates/set_password.html:26
 msgid "Generate URL"
 msgstr "URL generieren"
-
