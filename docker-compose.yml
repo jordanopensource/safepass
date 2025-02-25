@@ -1,18 +1,15 @@
-version: '2'
-
 services:
-    safepass:
-        build: .
-        image: josaorg/safepass
-        ports:
-            - "5000:5000"
-        stop_signal: SIGINT
-        environment:
-            - REDIS_HOST=redis
-            - NO_SSL=True
-        depends_on:
-            - redis
-    redis:
-        image: "redis:latest"
-        # ports:    # uncomment for debugging
-            # - "6379:6379"
+  safepass:
+    build: .
+    image: josaorg/safepass
+    ports:
+      - '5000:5000'
+    stop_signal: SIGINT
+    environment:
+      - REDIS_HOST=redis
+      - NO_SSL=True
+    depends_on:
+      - redis
+
+  redis:
+    image: 'redis:latest'

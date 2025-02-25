@@ -1,0 +1,8 @@
+# Drone CI File!
+
+kind: template
+load: container.jsonnet
+data:
+  repositoryName: josaorg/safepass
+  releaseName: safepass
+  buildArgs:
