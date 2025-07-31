@@ -1,8 +1,0 @@
-# Drone CI File!
-
-kind: template
-load: container.jsonnet
-data:
-  repositoryName: josaorg/safepass
-  releaseName: safepass
-  buildArgs: MATOMO_URL=https://track.josa.ngo/, MATOMO_SITE_ID=15
