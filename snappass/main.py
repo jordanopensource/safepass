@@ -18,6 +18,13 @@ NO_SSL = bool(strtobool(os.environ.get('NO_SSL', 'False')))
 URL_PREFIX = os.environ.get('URL_PREFIX', None)
 HOST_OVERRIDE = os.environ.get('HOST_OVERRIDE', None)
 TOKEN_SEPARATOR = '~'
+# Get environment variables for matomo
+MATOMO_URL = os.environ.get('MATOMO_URL', None)
+SITE_ID = os.environ.get('MATOMO_SITE_ID', None)
+MATOMO_DATA = {
+    'matomo_url': MATOMO_URL,
+    'site_id': SITE_ID
+}
 
 # Initialize Flask Application
 app = Flask(__name__)
@@ -70,7 +77,6 @@ def check_redis_alive(fn):
                 return abort(500)
 
     return inner
-
 
 def encrypt(password):
     """
@@ -361,7 +367,6 @@ def health_check():
 def main():
     app.run(host=os.environ.get('SNAPPASS_BIND_ADDRESS', '0.0.0.0'),
             port=os.environ.get('SNAPPASS_PORT', 5000))
-
 
 if __name__ == '__main__':
     main()

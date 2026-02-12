@@ -22,8 +22,8 @@ msgid "en"
 msgstr "fr"
 
 #: snappass/templates/base.html:4
-msgid "Snappass - Share Secrets"
-msgstr "Snappass - Partagez vos secrets !"
+msgid "Safepass - Share Secrets"
+msgstr "Safepass - Partagez vos secrets !"
 
 #: snappass/templates/base.html:16
 msgid "Share Secret"
@@ -96,14 +96,8 @@ msgid "Set Secret"
 msgstr "Définir le secret"
 
 #: snappass/templates/set_password.html:12
-msgid ""
-"SnapPass allows you to share secrets in a secure, ephemeral way. Input a "
-"single or multi-line secret, its expiration time, and click Generate URL."
-" Share the one-time use URL with your intended recipient."
-msgstr ""
-"SnapPass vous permet de partager des secrets de manière éphémère et sécurisée. "
-"Renseignez une ou plusieurs lignes, définissez la durée d'expiration et cliquez sur "
-"le bouton pour générer l'URL, puis partagez le secret avec votre destinataire."
+msgid "SafePass allows you to share secrets in a secure, ephemeral way."
+msgstr "SafePass vous permet de partager des secrets de manière éphémère et sécurisée."
 
 #: snappass/templates/set_password.html:18
 msgid "Two Weeks"
