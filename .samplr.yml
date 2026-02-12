@@ -11,6 +11,14 @@ autogencomments: true
 excludes:
   - \.sample # It's a good idea to exclude all *.sample* files, otherwise it will behave recursively
   - \.py$ # Most of the times, the code files won't need samples
+  - \.git
+  - \.sample.*
+  - \.github/.*
+  - \.woodpecker/.*
+  - \.yamlignore
+  - \.gitignore
+  - \.pre-commit-config.yaml
+
 includes:
   - ^env # Matches files like ./config/setup.yml or ./configuration/script.sh
   - \.yml$ # Matches all .yml files in the project
