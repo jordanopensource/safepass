@@ -9,6 +9,16 @@ repos:
       - id: check-added-large-files
       - id: trailing-whitespace
       - id: end-of-file-fixer
+  - repo: meta
+    hooks:
+      - id: check-hooks-apply
+      - id: check-useless-excludes
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.38.0
+    hooks:
+      - id: yamllint
+        args: [--strict, -c=.yamllint]
+        exclude: '(.github|tests|.woodpecker|pnpm-lock.yaml)/.*'
   - repo: https://github.com/zricethezav/gitleaks
     rev: v8.30.0
     hooks:
@@ -16,5 +26,11 @@ repos:
         name: detect hardcoded secrets
   - repo: https://github.com/jordanopensource/pre-commit-hooks
     rev: v0.4.5
+    hooks: []
+      # - id: run-samplr
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.13.7
     hooks:
-      - id: run-samplr
+      - id: commitizen
+        stages:
+          - commit-msg
