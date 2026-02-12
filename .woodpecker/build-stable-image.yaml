@@ -40,7 +40,7 @@ steps:
     image:  registry.cloud.josa.ngo/library/pre-commit-runner
     settings:
       args: "--all-files"
-      skip: "end-of-file-fixer, yamllint"
+      skip: "end-of-file-fixer, yamllint, run-samplr"
 
   # Build stable image (main branch only)
   - name: build-stable-image

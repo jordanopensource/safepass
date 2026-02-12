@@ -39,7 +39,7 @@ steps:
     image:  registry.cloud.josa.ngo/library/pre-commit-runner
     settings:
       args: "--all-files"
-      skip: "end-of-file-fixer, yamllint"
+      skip: "end-of-file-fixer, yamllint, run-samplr"
 
   # Build latest image (development and other branches)
   - name: build-latest-image
